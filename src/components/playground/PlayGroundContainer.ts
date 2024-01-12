@@ -23,7 +23,7 @@ export const PlayGroundContainer = styled.div<PlayGroundContainerProps>`
       case Result.WIN:
         return "green";
       default:
-        return "#333";
+        return "#FBFBFB";
     }
   }};
 `;

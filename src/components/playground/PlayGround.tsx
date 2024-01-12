@@ -2,6 +2,9 @@ import { GameChoice } from "../../types/GameChoice";
 import { PlayGroundContainer } from "./PlayGroundContainer";
 import { Section } from "./Section";
 import { Rock, Paper, Scissor } from "../../Icons";
+import { Card } from "./Card";
+
+import { useEffect } from "react";
 
 type PlayGroundProps = {
   playerChoice?: GameChoice;
@@ -20,8 +23,16 @@ export const PlayGround = ({
 }: PlayGroundProps) => {
   return (
     <PlayGroundContainer style={{}}>
-      <Section>{playerChoice && Component?.[playerChoice]}</Section>
-      <Section>{computerChoice && Component?.[computerChoice]}</Section>
+      <Section>
+        <Card controler={!!playerChoice}>
+          {playerChoice && Component?.[playerChoice]}
+        </Card>
+      </Section>
+      <Section>
+        <Card controler={!!computerChoice}>
+          {computerChoice && Component?.[computerChoice]}
+        </Card>
+      </Section>
     </PlayGroundContainer>
   );
 };
