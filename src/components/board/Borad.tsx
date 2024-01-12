@@ -6,6 +6,7 @@ type BordProps = {
   currentRound?: number;
   rounds?: number;
 };
+
 export const Borad = ({
   playerScore = 0,
   computerScore = 0,

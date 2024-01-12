@@ -4,6 +4,6 @@ type ButtonProps = {
   selected?: boolean;
 };
 export const Button = styled.button<ButtonProps>`
-  border: ${({ selected }) => (selected ? "2px solid red" : "0px transparent")};
+  border: 2px solid ${({ selected }) => (selected ? " red" : "transparent")};
   outline: none;
 `;
