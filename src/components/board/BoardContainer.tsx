@@ -6,5 +6,9 @@ type BoardContainerProps = {
 
 export const BoardContainer = styled.div<BoardContainerProps>`
   display: flex;
-  gap: 2rem;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  background-color: var(--bg3);
 `;
