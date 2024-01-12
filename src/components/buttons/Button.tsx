@@ -1,9 +1,6 @@
 import { styled } from "styled-components";
 
-type ButtonProps = {
-  selected?: boolean;
-};
-export const Button = styled.button<ButtonProps>`
-  border: 2px solid ${({ selected }) => (selected ? " white" : "transparent")};
+export const Button = styled.button`
+  border: 2px solid transparent;
   outline: none;
 `;

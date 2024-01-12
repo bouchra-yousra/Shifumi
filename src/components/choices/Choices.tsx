@@ -1,5 +1,6 @@
 import { Button } from "..";
 import { GameChoice } from "../../types";
+import { Choice } from "./Choice";
 import { ChoiceContainer } from "./ChoiceContainer";
 
 type ChoicesProps = {
@@ -21,13 +22,13 @@ export const Choices = ({
   return (
     <ChoiceContainer>
       {choices.map((choice) => (
-        <Button
+        <Choice
           onClick={() => handleSelectChoice(choice)}
           selected={choice === playerChoice}
           disabled={disabled}
         >
           {choice}
-        </Button>
+        </Choice>
       ))}
     </ChoiceContainer>
   );
