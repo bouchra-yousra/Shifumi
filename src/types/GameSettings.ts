@@ -1,3 +1,3 @@
-type GameSettings = {
+export type GameSettings = {
   rounds: number;
 };

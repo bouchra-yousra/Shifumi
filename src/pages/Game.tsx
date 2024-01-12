@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { GameChoice } from "../types/GameChoice";
 import { getRandomChoice } from "../services/getRandomChoice";
 import { getGameResult } from "../services/getGameResult";
-import { Result } from "../types/Results";
-import { Borad, Button } from "../components";
-import { GameResult } from "../components/gameResult/GameResult";
-import { Score } from "../types/Score";
+import { Borad, Button, GameResult, PlayGround } from "../components";
+import { Score, Result, GameChoice, GameSettings } from "../types";
 import { updateScore } from "../services/updateScore";
 
 export const Game = () => {
@@ -47,6 +44,7 @@ export const Game = () => {
         currentRound={currentRound}
         rounds={settings.rounds}
       />
+      <PlayGround playerChoice={playerChoice} computerChoice={computerChoice} />
       {choices.map((choice) => (
         <Button
           onClick={() => handleClick(choice)}
