@@ -4,6 +4,7 @@ import { getRandomChoice } from "../services/getRandomChoice";
 import { getGameResult } from "../services/getGameResult";
 import { Result } from "../types/Results";
 import { Button } from "../components";
+import { GameResult } from "../components/gameResult/GameResult";
 
 export const Game = () => {
   const choices: GameChoice[] = [
@@ -34,8 +35,7 @@ export const Game = () => {
           {choice}
         </Button>
       ))}
-      {computerChoice}
-      {result}
+      {result && <GameResult result={result} />}
     </div>
   );
 };
