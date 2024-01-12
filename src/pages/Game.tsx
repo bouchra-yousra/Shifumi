@@ -22,7 +22,7 @@ export const Game = () => {
     computerScore: 0,
   });
 
-  const handleClick = (e: GameChoice) => {
+  function handleClick(e: GameChoice): void {
     let randomChoice = getRandomChoice(choices);
     let gameResult = getGameResult(e, randomChoice);
     let newScore = updateScore(gameResult, score);
@@ -32,7 +32,15 @@ export const Game = () => {
     setComputerChoice(randomChoice);
     setResult(gameResult);
     setScore(newScore);
-  };
+  }
+
+  function resetGame(): void {
+    setScore({ playerScore: 0, computerScore: 0 });
+    setCurrentRound(0);
+    setPlayerChoice(undefined);
+    setComputerChoice(undefined);
+    setResult(undefined);
+  }
 
   return (
     <div>
@@ -53,6 +61,8 @@ export const Game = () => {
         </Button>
       ))}
       {result && <GameResult result={result} />}
+
+      <Button onClick={resetGame}>Restart</Button>
     </div>
   );
 };
