@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { styled } from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,5 +13,5 @@ export const Container = styled.div`
   padding: 2rem;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #222;
+  background-color: var(--bg2);
 `;
