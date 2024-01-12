@@ -6,6 +6,7 @@ type PlayGroundContainerProps = {
 };
 
 export const PlayGroundContainer = styled.div<PlayGroundContainerProps>`
+  position: relative;
   display: flex;
   flex: 1;
   align-items: space-between;
@@ -13,17 +14,4 @@ export const PlayGroundContainer = styled.div<PlayGroundContainerProps>`
   width: 100%;
   gap: 2rem;
   border-radius: 1rem;
-
-  background: ${({ status }) => {
-    switch (status) {
-      case Result.DRAW:
-        return "yellow";
-      case Result.LOSE:
-        return "red";
-      case Result.WIN:
-        return "green";
-      default:
-        return "#FBFBFB";
-    }
-  }};
 `;

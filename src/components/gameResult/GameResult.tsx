@@ -5,5 +5,5 @@ type GameResultProps = {
   result?: Result;
 };
 export const GameResult = ({ result }: GameResultProps) => {
-  return <GameResultContainer>{result}</GameResultContainer>;
+  return <GameResultContainer result={result}>{result}</GameResultContainer>;
 };
