@@ -1,0 +1,3 @@
+type GameSettings = {
+  rounds: number;
+};
