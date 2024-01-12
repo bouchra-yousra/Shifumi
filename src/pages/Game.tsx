@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { getRandomChoice } from "../services/getRandomChoice";
-import { getGameResult } from "../services/getGameResult";
-import { Borad, Button, GameResult, PlayGround } from "../components";
 import { Score, Result, GameChoice, GameSettings } from "../types";
-import { updateScore } from "../services/updateScore";
+import { getRandomChoice, getGameResult, updateScore } from "../services";
+import { Borad, Button, GameResult, PlayGround } from "../components";
 
 export const Game = () => {
   const choices: GameChoice[] = [
