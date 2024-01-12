@@ -1,6 +1,9 @@
-import React from "react";
-import { Button } from "../components/buttons/Button";
+import { useState } from "react";
 import { GameChoice } from "../types/GameChoice";
+import { getRandomChoice } from "../services/getRandomChoice";
+import { getGameResult } from "../services/getGameResult";
+import { Result } from "../types/Results";
+import { Button } from "../components";
 
 export const Game = () => {
   const choices: GameChoice[] = [
@@ -8,12 +11,31 @@ export const Game = () => {
     GameChoice.PAPER,
     GameChoice.SCISSORS,
   ];
+  const [playerChoice, setPlayerChoice] = useState<GameChoice>();
+  const [computerChoice, setComputerChoice] = useState<GameChoice>();
+  const [result, setResult] = useState<Result>();
+
+  const handleClick = (e: GameChoice) => {
+    let randomChoice = getRandomChoice(choices);
+    let gameResult = getGameResult(e, randomChoice);
+
+    setPlayerChoice(e);
+    setComputerChoice(randomChoice);
+    setResult(gameResult);
+  };
 
   return (
     <div>
       {choices.map((choice) => (
-        <Button>{choice}</Button>
+        <Button
+          onClick={() => handleClick(choice)}
+          selected={choice === playerChoice}
+        >
+          {choice}
+        </Button>
       ))}
+      {computerChoice}
+      {result}
     </div>
   );
 };
