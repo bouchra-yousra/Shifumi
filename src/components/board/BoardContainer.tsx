@@ -6,6 +6,8 @@ type BoardContainerProps = {
 
 export const BoardContainer = styled.div<BoardContainerProps>`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 0.6rem;
   border-radius: 1rem;

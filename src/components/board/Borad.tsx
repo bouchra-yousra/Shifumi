@@ -30,7 +30,7 @@ export const Borad = ({
         </ComputerScore>
       </ScoreContainer>
       <RoundContainer>
-        {currentRound} / {rounds}
+        Round {currentRound} of {rounds}
       </RoundContainer>
     </BoardContainer>
   );

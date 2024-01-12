@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 export const ScoreContainer = styled.div`
   display: flex;
-  flex: 1;
 `;
 
 export const PlayerScore = styled.div`
@@ -10,7 +9,7 @@ export const PlayerScore = styled.div`
   flex: 1;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.6em;
   gap: 1rem;
 
   background-color: var(--primary);
@@ -23,7 +22,7 @@ export const ComputerScore = styled.div`
   flex: 1;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.6em;
   gap: 1rem;
 
   background-color: var(--acces);
