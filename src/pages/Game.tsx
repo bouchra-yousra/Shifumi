@@ -12,6 +12,11 @@ export const Game = () => {
     GameChoice.PAPER,
     GameChoice.SCISSORS,
   ];
+  const settings: GameSettings = {
+    rounds: 3,
+  };
+  const [currentRound, setCurrentRound] = useState<number>(0);
+
   const [playerChoice, setPlayerChoice] = useState<GameChoice>();
   const [computerChoice, setComputerChoice] = useState<GameChoice>();
   const [result, setResult] = useState<Result>();
@@ -20,6 +25,7 @@ export const Game = () => {
     let randomChoice = getRandomChoice(choices);
     let gameResult = getGameResult(e, randomChoice);
 
+    setCurrentRound((val: number) => val + 1);
     setPlayerChoice(e);
     setComputerChoice(randomChoice);
     setResult(gameResult);
@@ -31,6 +37,7 @@ export const Game = () => {
         <Button
           onClick={() => handleClick(choice)}
           selected={choice === playerChoice}
+          disabled={currentRound === settings.rounds}
         >
           {choice}
         </Button>
