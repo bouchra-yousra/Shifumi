@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { Score, Result, GameChoice, GameSettings } from "../types";
 import { getRandomChoice, getGameResult, updateScore } from "../services";
-import { Borad, Button, GameResult, PlayGround } from "../components";
+import {
+  Borad,
+  Button,
+  Choices,
+  Container,
+  ControlContainer,
+  GameResult,
+  PlayGround,
+} from "../components";
 
 export const Game = () => {
   const choices: GameChoice[] = [
@@ -35,15 +43,15 @@ export const Game = () => {
   }
 
   function resetGame(): void {
+    setPlayerChoice(undefined);
     setScore({ playerScore: 0, computerScore: 0 });
     setCurrentRound(0);
-    setPlayerChoice(undefined);
     setComputerChoice(undefined);
     setResult(undefined);
   }
 
   return (
-    <div>
+    <Container>
       <Borad
         playerScore={score.playerScore}
         computerScore={score.computerScore}
@@ -51,18 +59,16 @@ export const Game = () => {
         rounds={settings.rounds}
       />
       <PlayGround playerChoice={playerChoice} computerChoice={computerChoice} />
-      {choices.map((choice) => (
-        <Button
-          onClick={() => handleClick(choice)}
-          selected={choice === playerChoice}
+      <ControlContainer>
+        <Choices
+          playerChoice={playerChoice}
+          handleSelectChoice={handleClick}
           disabled={currentRound === settings.rounds}
-        >
-          {choice}
-        </Button>
-      ))}
-      {result && <GameResult result={result} />}
+        />
 
-      <Button onClick={resetGame}>Restart</Button>
-    </div>
+        <Button onClick={resetGame}>Restart</Button>
+      </ControlContainer>
+      <GameResult result={result} />
+    </Container>
   );
 };

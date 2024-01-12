@@ -3,7 +3,7 @@ import { GameChoice } from "../../types";
 import { ChoiceContainer } from "./ChoiceContainer";
 
 type ChoicesProps = {
-  playerChoice: GameChoice;
+  playerChoice?: GameChoice;
   disabled?: boolean;
   handleSelectChoice: (choice: GameChoice) => void;
 };
