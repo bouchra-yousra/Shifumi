@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Score, Result, GameChoice, GameSettings } from "../types";
 import { getRandomChoice, getGameResult, updateScore } from "../services";
 import {
-  Borad,
+  Board,
   Button,
   Choices,
   ControlContainer,
@@ -59,7 +59,7 @@ export const Game = () => {
 
   return (
     <PageContainer>
-      <Borad
+      <Board
         playerScore={score.playerScore}
         computerScore={score.computerScore}
         currentRound={currentRound}
