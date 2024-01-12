@@ -4,10 +4,12 @@ import { CardContainer } from "./CardContainer";
 
 type CardProps = {
   controler?: boolean;
+  isPlayer?: boolean;
 };
 
 export const Card = ({
   controler,
+  isPlayer,
   children,
 }: CardProps & PropsWithChildren) => {
   const containerAnimationController = useAnimation();
@@ -16,12 +18,20 @@ export const Card = ({
   useEffect(() => {
     if (controler) {
       containerAnimationController.start({ rotateY: 0 }).then(() => {
-        containerAnimationController.start({ background: ["red", "green"] });
+        containerAnimationController.start({
+          background: isPlayer
+            ? ["var(--primary-dark)", "var(--primary)"]
+            : ["var(--acces-dark)", "var(--acces)"],
+        });
         elementAnimationController.start({ opacity: 1 });
       });
     } else {
       containerAnimationController.start({ rotateY: 180 }).then(() => {
-        containerAnimationController.start({ background: ["green", "red"] });
+        containerAnimationController.start({
+          background: isPlayer
+            ? ["var(--primary)", "var(--primary-dark)"]
+            : ["var(--acces", "var(--acces-dark))"],
+        });
       });
     }
   }, [controler]);
@@ -34,6 +44,7 @@ export const Card = ({
       }}
       animate={containerAnimationController}
       transition={{ duration: 0.6 }}
+      isPlayer={isPlayer}
     >
       <motion.div
         key={children}

@@ -4,17 +4,24 @@ import { Section } from "./Section";
 import { Rock, Paper, Scissor } from "../../Icons";
 import { Card } from "./Card";
 
-import { useEffect } from "react";
-
 type PlayGroundProps = {
   playerChoice?: GameChoice;
   computerChoice?: GameChoice;
 };
 
-const Component = {
-  [GameChoice.ROCK]: <Rock />,
-  [GameChoice.PAPER]: <Paper />,
-  [GameChoice.SCISSORS]: <Scissor />,
+const icons = {
+  [GameChoice.ROCK]: {
+    player: <Rock color={"var(--primary-dark"} />,
+    computer: <Rock color={"var(--acces-dark"} />,
+  },
+  [GameChoice.PAPER]: {
+    player: <Paper color={"var(--primary-dark"} />,
+    computer: <Paper color={"var(--acces-dark"} />,
+  },
+  [GameChoice.SCISSORS]: {
+    player: <Scissor color={"var(--primary-dark"} />,
+    computer: <Scissor color={"var(--acces-dark"} />,
+  },
 };
 
 export const PlayGround = ({
@@ -22,15 +29,15 @@ export const PlayGround = ({
   computerChoice,
 }: PlayGroundProps) => {
   return (
-    <PlayGroundContainer style={{}}>
+    <PlayGroundContainer>
       <Section>
-        <Card controler={!!playerChoice}>
-          {playerChoice && Component?.[playerChoice]}
+        <Card controler={!!playerChoice} isPlayer={true}>
+          {playerChoice && icons?.[playerChoice]?.player}
         </Card>
       </Section>
       <Section>
-        <Card controler={!!computerChoice}>
-          {computerChoice && Component?.[computerChoice]}
+        <Card controler={!!computerChoice} isPlayer={false}>
+          {computerChoice && icons?.[computerChoice]?.computer}
         </Card>
       </Section>
     </PlayGroundContainer>
