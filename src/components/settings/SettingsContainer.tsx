@@ -3,8 +3,11 @@ import { styled } from "styled-components";
 
 export const SettingsContainer = styled(motion.div)`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
   padding: 2rem;
+
   background-color: white;
+  text-align: start;
 `;
