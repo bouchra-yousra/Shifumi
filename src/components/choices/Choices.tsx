@@ -1,3 +1,4 @@
+import { Rock, Paper, Scissor } from "../../Icons";
 import { GameChoice } from "../../types";
 import { Choice } from "./Choice";
 import { ChoiceContainer } from "./ChoiceContainer";
@@ -18,6 +19,11 @@ export const Choices = ({
     GameChoice.PAPER,
     GameChoice.SCISSORS,
   ];
+  const Component = {
+    [GameChoice.ROCK]: <Rock />,
+    [GameChoice.PAPER]: <Paper />,
+    [GameChoice.SCISSORS]: <Scissor />,
+  };
   return (
     <ChoiceContainer>
       {choices.map((choice) => (
@@ -26,7 +32,7 @@ export const Choices = ({
           selected={choice === playerChoice}
           disabled={disabled}
         >
-          {choice}
+          {Component[choice]}
         </Choice>
       ))}
     </ChoiceContainer>

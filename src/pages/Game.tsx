@@ -38,10 +38,11 @@ export const Game = () => {
     const gameResult = getGameResult(e, randomChoice);
     const newScore = updateScore(gameResult, score);
     setComputerChoice(undefined);
+    setPlayerChoice(e);
 
     setTimeout(() => {
       setCurrentRound((val: number) => val + 1);
-      setPlayerChoice(e);
+
       setComputerChoice(randomChoice);
       setResult(gameResult);
       setScore(newScore);
