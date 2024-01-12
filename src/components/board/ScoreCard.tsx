@@ -1,32 +1,30 @@
 import { styled } from "styled-components";
 
+type ScoreCardProps = { isPlayer?: boolean };
+
 export const ScoreContainer = styled.div`
   display: flex;
 `;
 
-export const PlayerScore = styled.div`
+export const ScoreCard = styled.div<ScoreCardProps>`
   display: flex;
   flex: 1;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6em;
+  padding: 1rem 1.25rem;
   gap: 1rem;
-
-  background-color: var(--primary);
-  color: var(--primary-dark);
+  width: 125px;
   font-size: larger;
-  border-radius: 1rem 0rem 0rem 1rem;
-`;
-export const ComputerScore = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6em;
-  gap: 1rem;
-
-  background-color: var(--acces);
-  color: var(--acces-dark);
-  font-size: larger;
-  border-radius: 0rem 1rem 1rem 0rem;
+  ${({ isPlayer }) =>
+    isPlayer
+      ? `
+      background-color: var(--primary);
+      color: var(--primary-dark);
+      border-radius: 1rem 0rem 0rem 1rem;
+    `
+      : `
+      background-color: var(--acces);
+      color: var(--acces-dark);
+      border-radius: 0rem 1rem 1rem 0rem;
+    `}
 `;
