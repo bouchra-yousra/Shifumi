@@ -1,4 +1,3 @@
-import { Button } from "..";
 import { GameChoice } from "../../types";
 import { Choice } from "./Choice";
 import { ChoiceContainer } from "./ChoiceContainer";
