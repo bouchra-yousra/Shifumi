@@ -11,7 +11,7 @@ type SettingsProps = {
   onUpdateGameSettings?: () => void;
   open?: boolean;
   buttonText?: string;
-  title: string;
+  title?: string;
 };
 
 export const Settings = ({
