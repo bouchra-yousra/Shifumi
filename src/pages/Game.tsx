@@ -74,16 +74,16 @@ export const Game = () => {
         computerScore={score.computerScore}
         currentRound={currentRound}
         rounds={settings.rounds}
+        onRestart={resetGame}
+        onOpenOptions={handleOpenSettings}
       />
       <PlayGround playerChoice={playerChoice} computerChoice={computerChoice} />
       <ControlContainer>
-        <Button onClick={handleOpenSettings}>Settings</Button>
         <Choices
           playerChoice={playerChoice}
           handleSelectChoice={handleClick}
           disabled={currentRound === settings.rounds}
         />
-        <Button onClick={resetGame}>Restart</Button>
       </ControlContainer>
       <GameResult
         result={result}
@@ -91,7 +91,6 @@ export const Game = () => {
         playerName={settings.playerNamer}
         finalScore={score}
       />
-
       <Settings
         open={openSettings}
         currentSettings={settings}
