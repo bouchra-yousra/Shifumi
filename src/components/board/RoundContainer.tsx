@@ -10,7 +10,7 @@ export const RoundContainer = styled.div`
   width: 125px;
   height: max-content;
   font-size: larger;
-  background-color: var(--orange-100);
-  color: var(--orange-200);
+  background-color: var(--acces);
+  color: var(--acces-dark);
   border-radius: 1em;
 `;

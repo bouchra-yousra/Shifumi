@@ -8,6 +8,6 @@ export const Button = styled.button`
   border: 2px solid transparent;
   border-radius: 1rem;
   outline: none;
-  background-color: var(--gray-300);
-  color: var(--gray-200);
+  background-color: var(--primary);
+  color: var(--primary-dark);
 `;
