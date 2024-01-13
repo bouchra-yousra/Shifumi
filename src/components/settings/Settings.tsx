@@ -71,9 +71,13 @@ export const Settings = ({
       animate={animationControl}
     >
       <InputWrapper>
-        <Label>Player name {String(open)}</Label>
+        <Label>Player name </Label>
         <Input
-          placeholder={settings.playerNamer}
+          placeholder={
+            settings.playerNamer === ""
+              ? "Write you name "
+              : settings.playerNamer
+          }
           onChange={(e) =>
             setNewSettings({ ...newSettings, playerNamer: e.target.value })
           }

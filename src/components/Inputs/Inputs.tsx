@@ -6,6 +6,7 @@ export const Input = styled.input`
   border-radius: 12px;
   outline: none;
   background-color: var(--bg2);
+  color: var(--gray-900);
   &:hover {
     border: 2px tomato;
   }
