@@ -15,7 +15,7 @@ export const BoardContainer = styled.div<BoardContainerProps>`
   box-sizing: border-box;
   background-color: var(--bg3);
 
-  @media (min-width: 400px) {
+  @media (max-width: 400px) {
     flex-direction: column;
   }
 `;
