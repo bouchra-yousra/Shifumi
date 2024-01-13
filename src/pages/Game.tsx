@@ -10,13 +10,11 @@ import {
   PlayGround,
 } from "../components";
 import { Settings } from "../components/settings/Settings";
+import { useSettings } from "../hooks/settings";
 
 export const Game = () => {
+  const { settings } = useSettings();
   const [openSettings, setOpenSettings] = useState<boolean>(false);
-  const [settings, setSettings] = useState<GameSettings>({
-    rounds: 3,
-    playerNamer: "",
-  });
 
   const [currentRound, setCurrentRound] = useState<number>(0);
 
@@ -62,8 +60,7 @@ export const Game = () => {
     setOpenSettings((val) => !val);
   }
 
-  function updateGameSettings(newSettings: GameSettings): void {
-    setSettings(newSettings);
+  function onUpdateGameSettings(): void {
     setOpenSettings(false);
   }
 
@@ -94,8 +91,7 @@ export const Game = () => {
       />
       <Settings
         open={openSettings}
-        currentSettings={settings}
-        updateGameSettings={updateGameSettings}
+        onUpdateGameSettings={onUpdateGameSettings}
       />
     </PageContainer>
   );

@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
-import { GameSettings } from "../../types";
 import { Button } from "..";
 import { SettingsContainer } from "./SettingsContainer";
 import { Input } from "../Inputs/Inputs";
 import { Label } from "../Inputs/Label";
-import { useAnimate, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { InputWrapper } from "../Inputs/InputWrapper";
+import { useSettings } from "../../hooks/settings";
 
 type SettingsProps = {
-  updateGameSettings: (game: GameSettings) => void;
-  currentSettings: GameSettings;
+  onUpdateGameSettings?: () => void;
   open?: boolean;
 };
 
-export const Settings = ({
-  currentSettings,
-  updateGameSettings,
-  open,
-}: SettingsProps) => {
-  const [newSettings, setNewSettings] = useState(currentSettings);
+export const Settings = ({ open, onUpdateGameSettings }: SettingsProps) => {
+  const { settings, updateSettings } = useSettings();
+  const [newSettings, setNewSettings] = useState(settings);
   const animationControl = useAnimation();
 
   useEffect(() => {
@@ -72,9 +68,9 @@ export const Settings = ({
       <InputWrapper>
         <Label>Player name {String(open)}</Label>
         <Input
-          placeholder={currentSettings.playerNamer}
+          placeholder={settings.playerNamer}
           onChange={(e) =>
-            setNewSettings({ ...currentSettings, playerNamer: e.target.value })
+            setNewSettings({ ...settings, playerNamer: e.target.value })
           }
         />
       </InputWrapper>
@@ -82,10 +78,10 @@ export const Settings = ({
         <Label>Rounds number</Label>
         <Input
           type="number"
-          placeholder={String(currentSettings.rounds)}
+          placeholder={String(settings.rounds)}
           onChange={(e) =>
             setNewSettings({
-              ...currentSettings,
+              ...settings,
               rounds: Number.parseInt(e.target.value),
             })
           }
@@ -93,7 +89,14 @@ export const Settings = ({
           max={20}
         />
       </InputWrapper>
-      <Button onClick={() => updateGameSettings(newSettings)}>Submit</Button>
+      <Button
+        onClick={() => {
+          updateSettings(newSettings);
+          if (!!onUpdateGameSettings) onUpdateGameSettings?.();
+        }}
+      >
+        Submit
+      </Button>
     </SettingsContainer>
   );
 };
