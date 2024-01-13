@@ -15,4 +15,5 @@ export const Container = styled(motion.div)`
   box-sizing: border-box;
   overflow: hidden;
   background-color: var(--bg2);
+  z-index: 1;
 `;

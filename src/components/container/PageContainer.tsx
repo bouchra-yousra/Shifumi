@@ -1,13 +1,7 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren } from "react";
 import { Container } from "..";
 
 export const PageContainer = (props: PropsWithChildren) => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  });
   return (
     <Container
       initial={{
