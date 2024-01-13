@@ -7,6 +7,6 @@ export const Button = styled.button`
   gap: 0.4em;
   border: 2px solid transparent;
   outline: none;
-  background-color: var(--primary);
-  color: var(--primary-dark);
+  background-color: var(--gray-300);
+  color: var(--gray-200);
 `;

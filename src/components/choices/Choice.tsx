@@ -11,4 +11,9 @@ export const Choice = styled(motion.button)<ChoiceProps>`
   width: 6rem;
   height: 6rem;
   background-color: var(--gray-800);
+
+  svg {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 `;

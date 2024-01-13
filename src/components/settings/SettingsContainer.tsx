@@ -9,7 +9,8 @@ export const SettingsContainer = styled(motion.div)`
   align-items: stretch;
   padding: 2rem;
   border-radius: 1rem;
-  gap: 1em;
+  gap: 1.6em;
+  width: 24rem;
   background-color: white;
   text-align: start;
 `;
