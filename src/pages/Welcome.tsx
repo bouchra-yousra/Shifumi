@@ -9,6 +9,7 @@ export const Welcome = () => {
   return (
     <PageContainer>
       <Settings
+        title={"Shifumi challenge"}
         open={true}
         onUpdateGameSettings={() => {
           navigate("/game");
