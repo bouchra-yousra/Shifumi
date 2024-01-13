@@ -15,7 +15,7 @@ import { Settings } from "../components/settings/Settings";
 export const Game = () => {
   const [openSettings, setOpenSettings] = useState<boolean>(false);
   const [settings, setSettings] = useState<GameSettings>({
-    rounds: 5,
+    rounds: 3,
     playerNamer: "",
   });
 
@@ -30,6 +30,7 @@ export const Game = () => {
   });
 
   function handleClick(e: GameChoice): void {
+    if (currentRound >= settings.rounds) return;
     const choices: GameChoice[] = [
       GameChoice.ROCK,
       GameChoice.PAPER,

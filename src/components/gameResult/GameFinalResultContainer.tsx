@@ -17,10 +17,11 @@ export const GameFinalResultContainer = styled(
   box-sizing: border-box;
   overflow: hidden;
   pointer-events: none;
-  height: 10rem;
+  height: 12rem;
   width: 20rem;
   border: 2px solid;
   border-radius: 1rem;
+  pointer-events: all;
 
   ${({ isWinner }) =>
     isWinner
