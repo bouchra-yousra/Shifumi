@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,8 +12,35 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary: #80c2d7;
+  --primary-dark: #10677a;
+  --acces: #f0cd99;
+  --acces-dark: #db935f;
+
+  --bg1: #ffffff;
+  --bg2: #f0f0f0;
+  --bg3: #d7e2e8;
+
+  --gray-300: #cfd8dc;
+  --gray-500: #94a4ab;
+  --gray-800: #333;
+  --gray-900: #37474f;
+
+  --green-100: #9ad8b3;
+  --green-200: #38a363;
+  --yellow-100: #d7d89a;
+  --yellow-200: #8a7c2e;
+  --red-100: #f7ad8d;
+  --red-200: #e06e3e;
+
+  --orange-100: #ffe07d;
+  --orange-200: #e8ae4d;
 }
 
+* {
+  box-sizing: border-box;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -36,7 +64,7 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 1rem;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -49,12 +77,8 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -65,4 +89,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
