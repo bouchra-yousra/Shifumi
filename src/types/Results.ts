@@ -1,5 +1,5 @@
 export enum Result {
-  WIN = "You won",
-  LOSE = "You lost",
+  WIN = "Good job!!",
+  LOSE = "Try again",
   DRAW = "Draw",
 }
