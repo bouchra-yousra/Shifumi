@@ -6,6 +6,7 @@ import { Container } from "./container/Container";
 import { PageContainer } from "./container/PageContainer";
 import { ControlContainer } from "./container/ControlContainer";
 import { Choices } from "./choices/Choices";
+import { Title } from "./text/Title";
 
 export {
   Button,
@@ -16,4 +17,5 @@ export {
   ControlContainer,
   Choices,
   PageContainer,
+  Title,
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "..";
+import { Button, Title } from "..";
 import { SettingsContainer } from "./SettingsContainer";
 import { Input } from "../Inputs/Inputs";
 import { Label } from "../Inputs/Label";
@@ -11,12 +11,14 @@ type SettingsProps = {
   onUpdateGameSettings?: () => void;
   open?: boolean;
   buttonText?: string;
+  title: string;
 };
 
 export const Settings = ({
   open,
   onUpdateGameSettings,
   buttonText,
+  title,
 }: SettingsProps) => {
   const { settings, updateSettings } = useSettings();
   const [newSettings, setNewSettings] = useState({ ...settings });
@@ -70,6 +72,7 @@ export const Settings = ({
       }}
       animate={animationControl}
     >
+      {title && <Title>{title}</Title>}
       <InputWrapper>
         <Label>Player name </Label>
         <Input
