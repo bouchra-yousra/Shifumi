@@ -13,6 +13,7 @@ import {
 import { Settings } from "../components/settings/Settings";
 
 export const Game = () => {
+  const [openSettings, setOpenSettings] = useState<boolean>(false);
   const [settings, setSettings] = useState<GameSettings>({
     rounds: 1112,
     playerNamer: "",
@@ -57,6 +58,10 @@ export const Game = () => {
     setResult(undefined);
   }
 
+  function handleOpenSettings(): void {
+    setOpenSettings((val) => !val);
+  }
+
   return (
     <PageContainer>
       <Board
@@ -67,8 +72,7 @@ export const Game = () => {
       />
       <PlayGround playerChoice={playerChoice} computerChoice={computerChoice} />
       <ControlContainer>
-        {" "}
-        <Button onClick={resetGame}>Settings</Button>
+        <Button onClick={handleOpenSettings}>Settings</Button>
         <Choices
           playerChoice={playerChoice}
           handleSelectChoice={handleClick}
@@ -77,9 +81,12 @@ export const Game = () => {
         <Button onClick={resetGame}>Restart</Button>
       </ControlContainer>
       <GameResult result={result} />
-      {false && (
-        <Settings currentSettings={settings} updateGameSettings={setSettings} />
-      )}
+
+      <Settings
+        open={openSettings}
+        currentSettings={settings}
+        updateGameSettings={setSettings}
+      />
     </PageContainer>
   );
 };
