@@ -43,13 +43,11 @@ export const Board = ({
         </ScoreCard>
       </ScoreContainer>
       <OptionContainer>
-        <Button onClick={onOpenOptions}>
-          {/* <span>Options</span> */}
+        <Button onClick={onOpenOptions} title="Options">
           <img src="images/settings.png" width={20} />
         </Button>
         <Button onClick={onRestart}>
-          {/* <span>Restart</span> */}
-          <img src="images/restart.png" width={20} />
+          <img src="images/restart.png" width={20} title="Restart" />
         </Button>
       </OptionContainer>
     </BoardContainer>
