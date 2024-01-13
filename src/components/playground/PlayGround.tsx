@@ -10,18 +10,15 @@ type PlayGroundProps = {
 };
 
 const icons = {
-  [GameChoice.ROCK]: {
-    player: <Rock color={"var(--primary-dark"} />,
-    computer: <Rock color={"var(--acces-dark"} />,
-  },
-  [GameChoice.PAPER]: {
-    player: <Paper color={"var(--primary-dark"} />,
-    computer: <Paper color={"var(--acces-dark"} />,
-  },
-  [GameChoice.SCISSORS]: {
-    player: <Scissor color={"var(--primary-dark"} />,
-    computer: <Scissor color={"var(--acces-dark"} />,
-  },
+  [GameChoice.ROCK]: (isPlayer: boolean) => (
+    <Rock color={isPlayer ? "var(--primary-dark" : "var(--acces-dark"} />
+  ),
+  [GameChoice.PAPER]: (isPlayer: boolean) => (
+    <Paper color={isPlayer ? "var(--primary-dark" : "var(--acces-dark"} />
+  ),
+  [GameChoice.SCISSORS]: (isPlayer: boolean) => (
+    <Scissor color={isPlayer ? "var(--primary-dark" : "var(--acces-dark"} />
+  ),
 };
 
 export const PlayGround = ({
@@ -32,12 +29,12 @@ export const PlayGround = ({
     <PlayGroundContainer>
       <Section>
         <Card controler={!!playerChoice} isPlayer={true}>
-          {playerChoice && icons?.[playerChoice]?.player}
+          {playerChoice && icons[playerChoice](true)}
         </Card>
       </Section>
       <Section>
         <Card controler={!!computerChoice} isPlayer={false}>
-          {computerChoice && icons?.[computerChoice]?.computer}
+          {computerChoice && icons[computerChoice](false)}
         </Card>
       </Section>
     </PlayGroundContainer>
