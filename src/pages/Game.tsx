@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Score, Result, GameChoice, GameSettings } from "../types";
+import { Score, Result, GameChoice } from "../types";
 import { getRandomChoice, getGameResult, updateScore } from "../services";
 import {
   Board,
@@ -15,12 +15,11 @@ import { useSettings } from "../hooks/settings";
 export const Game = () => {
   const { settings } = useSettings();
   const [openSettings, setOpenSettings] = useState<boolean>(false);
-
   const [currentRound, setCurrentRound] = useState<number>(0);
-
   const [playerChoice, setPlayerChoice] = useState<GameChoice>();
   const [computerChoice, setComputerChoice] = useState<GameChoice>();
   const [result, setResult] = useState<Result>();
+  const [showResult, setShowResult] = useState<boolean>(false);
   const [score, setScore] = useState<Score>({
     playerScore: 0,
     computerScore: 0,
@@ -41,11 +40,14 @@ export const Game = () => {
 
     setTimeout(() => {
       setCurrentRound((val: number) => val + 1);
-
       setComputerChoice(randomChoice);
       setResult(gameResult);
       setScore(newScore);
+      setShowResult(true);
     }, 1000);
+    setTimeout(() => {
+      setShowResult(false);
+    }, 2000);
   }
 
   function resetGame(): void {
@@ -88,6 +90,7 @@ export const Game = () => {
         playerName={settings.playerNamer}
         finalScore={score}
         onRestart={resetGame}
+        showResult={showResult}
       />
       <Settings
         open={openSettings}

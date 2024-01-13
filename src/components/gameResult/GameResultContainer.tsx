@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
 import { Result } from "../../types";
+import { motion } from "framer-motion";
 
 type GameResultContainerProps = {
   result?: Result;
 };
 
-export const GameResultContainer = styled.div<GameResultContainerProps>`
+export const GameResultContainer = styled(motion.div)<GameResultContainerProps>`
   position: absolute;
   margin: 0 auto;
   display: flex;
@@ -15,7 +16,7 @@ export const GameResultContainer = styled.div<GameResultContainerProps>`
   box-sizing: border-box;
   overflow: hidden;
   pointer-events: none;
-  height: 10rem;
+  height: 6rem;
   width: 20rem;
   border: 2px solid;
   border-radius: 1rem;
@@ -39,13 +40,6 @@ export const GameResultContainer = styled.div<GameResultContainerProps>`
         border-color: var(--green-200);
         background-color: var(--green-100);
         color: var(--green-200);
-        `;
-      default:
-        return `
-        display: none;
-        border-color: transparent;
-        background-color: transparent;
-        color: transparent;
         `;
     }
   }};
