@@ -3,7 +3,6 @@ import { Score, Result, GameChoice, GameSettings } from "../types";
 import { getRandomChoice, getGameResult, updateScore } from "../services";
 import {
   Board,
-  Button,
   Choices,
   ControlContainer,
   GameResult,
@@ -91,6 +90,7 @@ export const Game = () => {
         isFinalResult={currentRound === settings.rounds}
         playerName={settings.playerNamer}
         finalScore={score}
+        onRestart={resetGame}
       />
       <Settings
         open={openSettings}
