@@ -19,20 +19,22 @@ export const Card = ({
     if (controler) {
       containerAnimationController.start({ rotateY: 0 }).then(() => {
         containerAnimationController.start({
-          background: isPlayer
-            ? ["var(--primary-dark)", "var(--primary)"]
-            : ["var(--acces-dark)", "var(--acces)"],
+          background: isPlayer ? ["var(--primary)"] : ["var(--acces)"],
         });
         elementAnimationController.start({ opacity: 1 });
       });
     } else {
-      containerAnimationController.start({ rotateY: 180 }).then(() => {
-        containerAnimationController.start({
+      containerAnimationController
+        .start({
           background: isPlayer
-            ? ["var(--primary)", "var(--primary-dark)"]
-            : ["var(--acces", "var(--acces-dark))"],
+            ? ["var(--primary-dark)"]
+            : ["var(--acces-dark)"],
+        })
+        .then(() => {
+          containerAnimationController.start({
+            rotateY: 180,
+          });
         });
-      });
     }
   }, [controler]);
 
@@ -40,14 +42,14 @@ export const Card = ({
     <CardContainer
       initial={{
         rotateY: 0,
-        background: "blue",
+        background: isPlayer ? "var(--primary-dark)" : "var(--acces-dark)",
       }}
       animate={containerAnimationController}
       transition={{ duration: 0.6 }}
       isPlayer={isPlayer}
     >
       <motion.div
-        key={children}
+        key={`${children}`}
         animate={elementAnimationController}
         initial={{ opacity: 0 }}
       >
