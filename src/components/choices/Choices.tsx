@@ -26,8 +26,9 @@ export const Choices = ({
   };
   return (
     <ChoiceContainer>
-      {choices.map((choice) => (
+      {choices.map((choice: GameChoice) => (
         <Choice
+          key={choice}
           onClick={() => handleSelectChoice(choice)}
           selected={choice === playerChoice}
           disabled={disabled}
