@@ -10,7 +10,12 @@ export const BoardContainer = styled.div<BoardContainerProps>`
   align-items: center;
   width: 100%;
   padding: 0.6rem;
+  gap: 0.4rem;
   border-radius: 1rem;
   box-sizing: border-box;
   background-color: var(--bg3);
+
+  @media (min-width: 400px) {
+    flex-direction: column;
+  }
 `;

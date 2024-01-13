@@ -8,4 +8,8 @@ export const OptionContainer = styled.div`
   font-size: larger;
   color: var(--orange-200);
   gap: 0.4rem;
+
+  @media (min-width: 400px) {
+    flex-direction: row;
+  }
 `;
