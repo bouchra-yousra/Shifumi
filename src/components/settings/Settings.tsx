@@ -10,11 +10,16 @@ import { useSettings } from "../../hooks/settings";
 type SettingsProps = {
   onUpdateGameSettings?: () => void;
   open?: boolean;
+  buttonText?: string;
 };
 
-export const Settings = ({ open, onUpdateGameSettings }: SettingsProps) => {
+export const Settings = ({
+  open,
+  onUpdateGameSettings,
+  buttonText,
+}: SettingsProps) => {
   const { settings, updateSettings } = useSettings();
-  const [newSettings, setNewSettings] = useState(settings);
+  const [newSettings, setNewSettings] = useState({ ...settings });
   const animationControl = useAnimation();
 
   useEffect(() => {
@@ -70,7 +75,7 @@ export const Settings = ({ open, onUpdateGameSettings }: SettingsProps) => {
         <Input
           placeholder={settings.playerNamer}
           onChange={(e) =>
-            setNewSettings({ ...settings, playerNamer: e.target.value })
+            setNewSettings({ ...newSettings, playerNamer: e.target.value })
           }
         />
       </InputWrapper>
@@ -81,7 +86,7 @@ export const Settings = ({ open, onUpdateGameSettings }: SettingsProps) => {
           placeholder={String(settings.rounds)}
           onChange={(e) =>
             setNewSettings({
-              ...settings,
+              ...newSettings,
               rounds: Number.parseInt(e.target.value),
             })
           }
@@ -95,7 +100,7 @@ export const Settings = ({ open, onUpdateGameSettings }: SettingsProps) => {
           if (!!onUpdateGameSettings) onUpdateGameSettings?.();
         }}
       >
-        Submit
+        {buttonText}
       </Button>
     </SettingsContainer>
   );

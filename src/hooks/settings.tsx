@@ -39,7 +39,8 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
 
   // Function to update settings
   const updateSettings = (newSettings: GameSettings) => {
-    setSettings({ ...newSettings });
+    console.table(newSettings);
+    setSettings(newSettings);
   };
 
   // Provide the context value to the children

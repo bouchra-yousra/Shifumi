@@ -92,6 +92,7 @@ export const Game = () => {
       <Settings
         open={openSettings}
         onUpdateGameSettings={onUpdateGameSettings}
+        buttonText="Submit"
       />
     </PageContainer>
   );
