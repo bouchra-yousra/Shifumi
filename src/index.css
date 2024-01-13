@@ -21,7 +21,9 @@
   --bg2: #f0f0f0;
   --bg3: #e3e3e3;
 
+  --gray-300: #cfd8dc;
   --gray-800: #333;
+  --gray-900: #37474f;
 
   --green-100: #9ad8b3;
   --green-200: #38a363;
@@ -29,6 +31,9 @@
   --yellow-200: #8a7c2e;
   --red-100: #f7ad8d;
   --red-200: #e06e3e;
+
+  --orange-100: #ffe07d;
+  --orange-200: #e8ae4d;
 }
 
 * {

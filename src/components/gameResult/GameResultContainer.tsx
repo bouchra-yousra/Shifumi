@@ -19,40 +19,34 @@ export const GameResultContainer = styled.div<GameResultContainerProps>`
   width: 20rem;
   border: 2px solid;
   border-radius: 1rem;
-  border-color: ${({ result }) => {
+
+  ${({ result }) => {
     switch (result) {
       case Result.DRAW:
-        return "var(--yellow-200)";
+        return `
+        border-color: var(--yellow-200);
+        background-color: var(--yellow-100);
+        color: var(--yellow-200);
+        `;
       case Result.LOSE:
-        return "var(--red-200)";
+        return `
+        border-color: var(--red-200);
+        background-color: var(--red-100);
+        color: var(--red-200);
+        `;
       case Result.WIN:
-        return "var(--green-200)";
+        return `
+        border-color: var(--green-200);
+        background-color: var(--green-100);
+        color: var(--green-200);
+        `;
       default:
-        return "var(--bg-3)";
-    }
-  }};
-  background-color: ${({ result }) => {
-    switch (result) {
-      case Result.DRAW:
-        return "var(--yellow-100)";
-      case Result.LOSE:
-        return "var(--red-100)";
-      case Result.WIN:
-        return "var(--green-100)";
-      default:
-        return "var(--bg-1)";
-    }
-  }};
-  color: ${({ result }) => {
-    switch (result) {
-      case Result.DRAW:
-        return "var(--yellow-200)";
-      case Result.LOSE:
-        return "var(--red-200)";
-      case Result.WIN:
-        return "var(--green-200)";
-      default:
-        return "var(--bg-3)";
+        return `
+        display: none;
+        border-color: transparent;
+        background-color: transparent;
+        color: transparent;
+        `;
     }
   }};
 `;
