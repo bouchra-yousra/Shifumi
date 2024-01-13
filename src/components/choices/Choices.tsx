@@ -20,9 +20,9 @@ export const Choices = ({
     GameChoice.SCISSORS,
   ];
   const Component = {
-    [GameChoice.ROCK]: <Rock />,
-    [GameChoice.PAPER]: <Paper />,
-    [GameChoice.SCISSORS]: <Scissor />,
+    [GameChoice.ROCK]: <Rock color="var(--bg1)" />,
+    [GameChoice.PAPER]: <Paper color="var(--bg1)" />,
+    [GameChoice.SCISSORS]: <Scissor color="var(--bg1)" />,
   };
   return (
     <ChoiceContainer>
