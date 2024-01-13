@@ -32,7 +32,7 @@ export const Board = ({
         </span>
       </RoundContainer>
       <ScoreContainer>
-        <ScoreCard isPlayer>
+        <ScoreCard isplayer>
           <img src={player} width={50} />
           <span>{playerScore}</span>
         </ScoreCard>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { styled } from "styled-components";
 
 type CardContainerProps = {
-  isPlayer?: boolean;
+  isplayer?: boolean;
 };
 
 export const CardContainer = styled(motion.div)<CardContainerProps>`
@@ -13,6 +13,6 @@ export const CardContainer = styled(motion.div)<CardContainerProps>`
   height: 10rem;
   border-radius: 100%;
   border: 4px solid
-    ${({ isPlayer }) =>
-      isPlayer ? "var(--primary-dark)" : "var(--acces-dark)"};
+    ${({ isplayer }) =>
+      isplayer ? "var(--primary-dark)" : "var(--acces-dark)"};
 `;

@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { Button, PageContainer } from "../components";
 
+import { Settings } from "../components/settings/Settings";
+
 export const Welcome = () => {
   const navigate = useNavigate();
 
   return (
-    <PageContainer>
+    <>
       <Button
         onClick={() => {
           navigate("/game");
@@ -13,6 +15,7 @@ export const Welcome = () => {
       >
         Start
       </Button>
-    </PageContainer>
+      <Settings open={true} />
+    </>
   );
 };

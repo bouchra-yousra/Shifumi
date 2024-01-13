@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-type ScoreCardProps = { isPlayer?: boolean };
+type ScoreCardProps = { isplayer?: boolean };
 
 export const ScoreContainer = styled.div`
   display: flex;
@@ -15,8 +15,8 @@ export const ScoreCard = styled.div<ScoreCardProps>`
   gap: 1rem;
   width: 125px;
   font-size: larger;
-  ${({ isPlayer }) =>
-    isPlayer
+  ${({ isplayer }) =>
+    isplayer
       ? `
       background-color: var(--primary);
       color: var(--primary-dark);
